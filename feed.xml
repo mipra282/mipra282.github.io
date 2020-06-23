@@ -1,4 +1,112 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-06-12T13:27:29+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mithilesh’s Blog</title><subtitle>I am a Data Scientist/Machine Learning Engineer who loves to explore data and derive insights building models to produce amazing revenue.</subtitle><entry><title type="html">A General Introduction to Performance Metrics in Machine learning</title><link href="http://localhost:4000/jekyll/update/2020/06/12/welcome-to-jekyll.html" rel="alternate" type="text/html" title="A General Introduction to Performance Metrics in Machine learning" /><published>2020-06-12T10:41:02+05:30</published><updated>2020-06-12T10:41:02+05:30</updated><id>http://localhost:4000/jekyll/update/2020/06/12/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2020/06/12/welcome-to-jekyll.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-06-23T17:47:21+05:30</updated><id>http://localhost:4000/feed.xml</id><title type="html">Mithilesh’s Blog</title><subtitle>I am a Data Scientist/Machine Learning Engineer who loves to explore data and derive insights building models to produce amazing revenue.</subtitle><entry><title type="html">Guide to Install MongoDB on Ubuntu 16.04 Server and Connect with Tableau Desktop</title><link href="http://localhost:4000/jekyll/update/2020/06/23/tableau-installation.html" rel="alternate" type="text/html" title="Guide to Install MongoDB on Ubuntu 16.04 Server and Connect with Tableau Desktop" /><published>2020-06-23T10:41:02+05:30</published><updated>2020-06-23T10:41:02+05:30</updated><id>http://localhost:4000/jekyll/update/2020/06/23/tableau-installation</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2020/06/23/tableau-installation.html">&lt;p&gt;&lt;img src=&quot;RackMultipart20200623-4-12amps6_html_15f2c4538a1cf02e.gif&quot; alt=&quot;&quot; /&gt; &lt;img src=&quot;RackMultipart20200623-4-12amps6_html_50684fa6c0964e7f.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;h1 id=&quot;guide-to-install-mongodb-on-ubuntu-1604-server-and-connect-with-tableau-desktop&quot;&gt;Guide to Install MongoDB on Ubuntu 16.04 Server and Connect with Tableau Desktop&lt;/h1&gt;
+
+&lt;h4 id=&quot;mongodb-community-and-mongodb-mysqlid-install&quot;&gt;MongoDB Community and MongoDB Mysqlid Install&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/&quot;&gt;&lt;strong&gt;https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;steps-on-ubuntulinux-server&quot;&gt;Steps (On ubuntu/linux server):&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;$wget -qO - https://www.mongodb.org/static/pgp/server-4.2.asc | sudo apt-key add -&lt;/li&gt;
+  &lt;li&gt;$sudo apt-get install gnupg&lt;/li&gt;
+  &lt;li&gt;$wget -qO - https://www.mongodb.org/static/pgp/server-4.2.asc | sudo apt-key add -&lt;/li&gt;
+  &lt;li&gt;$echo &quot;deb [arch=amd64,arm64] https://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/4.2 multiverse&quot; | sudo tee /etc/apt/sources.list.d/mongodb-org-4.2.list&lt;/li&gt;
+  &lt;li&gt;$sudo apt-get update&lt;/li&gt;
+  &lt;li&gt;$sudo apt-get install -y mongodb-org&lt;/li&gt;
+  &lt;li&gt;$echo &quot;mongodb-org hold&quot; | sudo dpkg –set-selections&lt;/li&gt;
+  &lt;li&gt;$echo &quot;mongodb-org-server hold&quot; | sudo dpkg –set-selections&lt;/li&gt;
+  &lt;li&gt;$echo &quot;mongodb-org-shell hold&quot; | sudo dpkg –set-selections&lt;/li&gt;
+  &lt;li&gt;$echo &quot;mongodb-org-mongos hold&quot; | sudo dpkg –set-selections&lt;/li&gt;
+  &lt;li&gt;$echo &quot;mongodb-org-tools hold&quot; | sudo dpkg –set-selections&lt;/li&gt;
+  &lt;li&gt;$sudo systemctl daemon-reload&lt;/li&gt;
+  &lt;li&gt;$sudo systemctl start mongod&lt;/li&gt;
+  &lt;li&gt;$sudo systemctl status mongod&lt;/li&gt;
+  &lt;li&gt;$sudo systemctl enable mongod #Adds as a service to system boot&lt;/li&gt;
+  &lt;li&gt;$sudo systemctl stop mongod&lt;/li&gt;
+  &lt;li&gt;$Access mongo shell using command:&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;$mongo&lt;/p&gt;
+
+&lt;p&gt;Go to /etc/mongod.conffolder and change bindIp to 0.0.0.0.Save and exit.&lt;/p&gt;
+
+&lt;p&gt;$vi /etc/mongod.conf&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Next install the BI connector on Linux server which will install mongsqlid which provides a proxy to tunnel your Tableau connections to mongodb database on the server.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://docs.mongodb.com/bi-connector/master/tutorial/install-bi-connector-debian/#install-the-bi-short&quot;&gt;&lt;strong&gt;https://docs.mongodb.com/bi-connector/master/tutorial/install-bi-connector-debian/#install-the-bi-short&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;$tar -xvzf mongodb-bi-linux-{arch}-{platform}-{version}.tgz&lt;/p&gt;
+
+&lt;p&gt;Eg. $wget &lt;a href=&quot;https://info-mongodb-com.s3.amazonaws.com/mongodb-bi/v2/mongodb-bi-linux-x86_64-ubuntu1604-v2.13.4.tgz&quot;&gt;https://info-mongodb-com.s3.amazonaws.com/mongodb-bi/v2/mongodb-bi-linux-x86_64-ubuntu1604-v2.13.4.tgz&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Next, extract the archive and cd into &lt;strong&gt;bin&lt;/strong&gt; folder&lt;/p&gt;
+
+&lt;p&gt;Next hit this command,&lt;/p&gt;
+
+&lt;p&gt;$./mongosqld –mongo-uri &quot;mongodb://104.154.35.52:27017/?connect=direct&quot;&lt;/p&gt;
+
+&lt;h4 id=&quot;tableau-desktop-installation-and-connect-mongodb-server&quot;&gt;Tableau Desktop Installation and Connect Mongodb server&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Download Tableau latest version trial from this link:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.tableau.com/trial/tableau-software?utm_campaign_id=2017049&amp;amp;utm_campaign=Prospecting-PROD-ALL-ALL-ALL-ALL&amp;amp;utm_medium=Paid+Search&amp;amp;utm_source=Bing&amp;amp;utm_language=EN&amp;amp;utm_country=IND&amp;amp;kw=%2Btableau%20%2Bdesktop&amp;amp;adgroup=CTX-Brand-Tableau+Desktop-EN-B&amp;amp;adused=&amp;amp;matchtype=p&amp;amp;placement=&amp;amp;&amp;amp;msclkid=da239555054e161b4237cbbe1d065f12&amp;amp;gclid=CIratJvsiuoCFUU8jgodxOYN7Q&amp;amp;gclsrc=ds&quot;&gt;&lt;strong&gt;https://www.tableau.com/trial/tableau-software?utm_campaign_id=2017049&amp;amp;utm_campaign=Prospecting-PROD-ALL-ALL-ALL-ALL&amp;amp;utm_medium=Paid+Search&amp;amp;utm_source=Bing&amp;amp;utm_language=EN&amp;amp;utm_country=IND&amp;amp;kw=%2Btableau%20%2Bdesktop&amp;amp;adgroup=CTX-Brand-Tableau+Desktop-EN-B&amp;amp;adused=&amp;amp;matchtype=p&amp;amp;placement=&amp;amp;&amp;amp;msclkid=da239555054e161b4237cbbe1d065f12&amp;amp;gclid=CIratJvsiuoCFUU8jgodxOYN7Q&amp;amp;gclsrc=ds&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Register and start trial.&lt;/p&gt;
+
+&lt;p&gt;Now download the driver for Tableau MongoDB BI connector which internally uses Mysql 8 drivers.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.tableau.com/support/drivers&quot;&gt;https://www.tableau.com/support/drivers&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Also go to mysql driver page and install Mysql 8 ODBC Connector for your OS.&lt;/p&gt;
+
+&lt;p&gt;Image source:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/screen1.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Next,&lt;/p&gt;
+
+&lt;p&gt;Initiating the connection using Tableau.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Start Tableau Desktop&lt;/li&gt;
+  &lt;li&gt;Go to More option under Connect.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/screen2.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Search for MongoDB BI Connector.&lt;/li&gt;
+  &lt;li&gt;Enter internal ip of your server and port as 3307 on the popup box&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/screen3.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Hurray,you are connected now.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Homescreen will look like this.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/images/screen4.png&quot; alt=&quot;image&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;ADDITIONAL READING (Optional)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Server Installation - Only in case of tableau server.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;wget &lt;a href=&quot;https://downloads.tableau.com/esdalt/10.5.1/tableau-server-10-5-1_amd64.deb&quot;&gt;https://downloads.tableau.com/esdalt/10.5.1/tableau-server-10-5-1_amd64.deb&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;sudo apt-get update&lt;/p&gt;
+
+&lt;p&gt;sudo apt-get upgrade&lt;/p&gt;
+
+&lt;p&gt;sudo apt-get -y install gdebi-core&lt;/p&gt;
+
+&lt;p&gt;sudo gdebi -n tableau-server-\&amp;lt;version\&amp;gt;_amd64.deb&lt;/p&gt;
+
+&lt;p&gt;Sudo apt install ./tableau-server-10-5-1_amd64.deb&lt;/p&gt;
+
+&lt;p&gt;sudo /opt/tableau/tableau_server/packages/scripts.10500.18.0210.2209/initialize-tsm –accepteula&lt;/p&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">A General Introduction to Performance Metrics in Machine learning</title><link href="http://localhost:4000/jekyll/update/2020/06/12/welcome-to-jekyll.html" rel="alternate" type="text/html" title="A General Introduction to Performance Metrics in Machine learning" /><published>2020-06-12T10:41:02+05:30</published><updated>2020-06-12T10:41:02+05:30</updated><id>http://localhost:4000/jekyll/update/2020/06/12/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2020/06/12/welcome-to-jekyll.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
 
 &lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
 
